@@ -7,17 +7,34 @@ function render (html) {
    Demo 1: Click (counter)
 -------------------------------- */
 let clickCount = 0
-
+document.getElementById('btnClick').addEventListener('click', () => {
+   clickCount++
+   render(
+      `<p>You clicked my button! It's been clicked ${clickCount} time${clickCount === 1 ? '' : 's'}.</p>`
+   )
+})
 
 /* --------------------------------------
    Demo 2: Double-click (toggle highlight)
 --------------------------------------- */
+const dblCard = document.getElementById('dblCard')
 
+dblCard.addEventListener('dblclick', () => {
+   dblCard.classList.toggle('activated')
+   const state = dblCard.classList.contains('activated') ? 'ON' : 'OFF'
+   render(`<p>The highlight is ${state}</p>`)
+})
 
 /* --------------------------------
    Demo 3: Keypress (show key/code)
 --------------------------------- */
+const kbKey = document.getElementById('kbKey')
+const kbCode = document.getElementById('kbCode')
 
+document.addEventListener('keydown', e => {
+   kbKey.textContent = e.key === ' ' ? '(space)' : e.key
+   kbCode.textContent = e.code
+})
 
 /* ----------------------------------------
    Demo 4: Show Time (12-hour format + day)
@@ -32,7 +49,7 @@ document.getElementById('btnClear').addEventListener('click', () => {
 })
 
 /* =================================================
-   🔥 Event Listeners Challenge (Pick ONE to complete)
+   🔥 Event Listeners Challenge (Pick TWO to complete)
 
    Option A — Hover Highlight + Counter
    - Create a variable to track how many times the card was hovered
@@ -55,3 +72,7 @@ document.getElementById('btnClear').addEventListener('click', () => {
    - On focus: add a border/shadow class to the input
    - On blur: remove those classes and make sure #out shows the right message
 ================================================== */
+
+
+let hoverCard = 0
+let hovercard = document.getElementById('hovercard').addEventListener('')
