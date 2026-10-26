@@ -92,3 +92,5 @@ hoverCard.addEventListener('mouseleave', () => {
    hoverCard.classList.remove('activated')
    render('<p>Mouse left the card.</p>')
 })
+
+/* option b - scroll progress bar */
