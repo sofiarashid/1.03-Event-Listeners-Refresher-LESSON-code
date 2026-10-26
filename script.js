@@ -74,5 +74,21 @@ document.getElementById('btnClear').addEventListener('click', () => {
 ================================================== */
 
 
-let hoverCard = 0
-let hovercard = document.getElementById('hovercard').addEventListener('')
+
+
+/* option a - hover highlight + counter */
+let hoverCount = 0
+const hoverCard = document.getElementById('hovercard')
+const counterDisplay = document.getElementById('hoverCount')
+
+hoverCard.addEventListener('mouseenter', () => {
+   hoverCount++
+   hoverCard.classList.add('activated')
+   counterDisplay.textContent = hoverCount
+   render(`<p>Hover Count: ${hoverCount}</p>`)
+})
+
+hoverCard.addEventListener('mouseleave', () => {
+   hoverCard.classList.remove('activated')
+   render('<p>Mouse left the card.</p>')
+})
