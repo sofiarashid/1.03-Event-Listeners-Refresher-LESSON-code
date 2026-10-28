@@ -94,3 +94,26 @@ hoverCard.addEventListener('mouseleave', () => {
 })
 
 /* option b - scroll progress bar */
+const scrollProgressBar = document.getElementById('scrollProgressBar')
+const scrollProgress = scrollProgressBar.parentElement
+
+function updateScrollProgress () {
+   const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight
+   let scrollPercentage
+
+   if (scrollableHeight > 0) {
+      scrollPercentage = (window.scrollY / scrollableHeight) * 100
+   } else {
+      scrollPercentage = 0
+   }
+
+   if (scrollPercentage > 100) {
+      scrollPercentage = 100
+   }
+
+   scrollProgressBar.style.width = `${scrollPercentage}%`
+   scrollProgress.setAttribute('aria-valuenow', `${Math.round(scrollPercentage)}`)
+}
+
+updateScrollProgress()
+window.addEventListener('scroll', updateScrollProgress)
